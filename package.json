@@ -1,0 +1,32 @@
+{
+  "name": "propiedadescyfronent",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "prettier --write",
+    "lint": "eslint --fix . --ext .js,.jsx"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0",
+    "sass": "^1.54.5",
+    "sweetalert2": "^11.4.29",
+    "swiper": "^8.4.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.0.1",
+    "eslint": "^8.23.0",
+    "eslint-plugin-react": "^7.31.1",
+    "vite": "^3.0.7"
+  }
+}
