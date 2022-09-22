@@ -42,16 +42,28 @@ const HeaderNav = () => {
 			<section className={tooglePortadaImg}>
 				<div className={`fondo-header ${fondoHeaderNormal}`}>
 					<header>
-						<h1 className="tituloNav">
-							<NavLink
-								to="/"
-								className={(isActive) =>
-									'tituloNav-a' + (!isActive ? ' unselected' : '')
-								}
-							>
-								PROPIEDADES C<span className="tituloNav-span">&</span>T
-							</NavLink>
-						</h1>
+						<div>
+							<h1 className="tituloNav border_wave">
+								<NavLink
+									to="/"
+									className={(isActive) =>
+										'tituloNav-a' + (!isActive ? ' unselected' : '')
+									}
+								>
+									PROPIEDADES C&T
+								</NavLink>
+							</h1>
+							<h1 className="tituloNav wave">
+								<NavLink
+									to="/"
+									className={(isActive) =>
+										'tituloNav-a' + (!isActive ? ' unselected' : '')
+									}
+								>
+									PROPIEDADES C&T
+								</NavLink>
+							</h1>
+						</div>
 						<button className="boton-svg" onClick={clickSvg}>
 							<svg
 								className="svg"
@@ -72,7 +84,7 @@ const HeaderNav = () => {
 									</NavLink>
 								</li>
 								<li className="li">
-									<NavLink to="#" className="Informacion">
+									<NavLink to="Informacion" className="Informacion">
 										Informacion
 									</NavLink>
 								</li>

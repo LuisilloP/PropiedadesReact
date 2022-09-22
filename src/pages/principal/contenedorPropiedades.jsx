@@ -20,22 +20,30 @@ const ContenedorPropiedades = () => {
 	{
 		return (
 			<section className="contenedor">
+				<h1 className="text-aling-center">Propiedades</h1>
 				<div className="contenedor-propiedad">
-					{propiedades.map((propiedad) => (
-						<PropiedadPlantilla
-							key={propiedad._id}
-							id={propiedad._id}
-							titulo={propiedad.titulo}
-							descripcion={propiedad.descripcion}
-							url_img={propiedad.url_img}
-							ubicacion={propiedad.ubicacion}
-							banio={propiedad.banio}
-							metros={propiedad.metros}
-							habitacion={propiedad.habitacion}
-							agua={propiedad.agua}
-							luz={propiedad.luz}
-						></PropiedadPlantilla>
-					))}
+					{propiedades.map((propiedad, index) => {
+						if (index <= 2) {
+							//maximo de propiedades a mostrar
+							return (
+								<PropiedadPlantilla
+									key={propiedad._id}
+									id={propiedad._id}
+									titulo={propiedad.titulo}
+									descripcion={propiedad.descripcion}
+									url_img={propiedad.url_img}
+									ubicacion={propiedad.ubicacion}
+									banio={propiedad.banio}
+									tipo={propiedad.tipo}
+									metros={propiedad.metros}
+									habitacion={propiedad.habitacion}
+									agua={propiedad.agua}
+									luz={propiedad.luz}
+									precio={propiedad.precio}
+								></PropiedadPlantilla>
+							);
+						}
+					})}
 				</div>
 			</section>
 		);

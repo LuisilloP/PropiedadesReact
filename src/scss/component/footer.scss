@@ -1,0 +1,13 @@
+.Footer-principal
+{
+    height: 20vh;
+    background-color: #1d1d1d;
+    h1{
+        color: white;
+    }
+    .contenedor-footer
+    {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+    }
+}

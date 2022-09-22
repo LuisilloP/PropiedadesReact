@@ -5,6 +5,12 @@
     align-items: $aling;
     
 };
+@mixin Ultrabaja {
+    @media screen and (max-width:350px)
+    {
+        @content
+    }
+};
 @mixin baja {
     @media screen and (max-width:450px)
     {

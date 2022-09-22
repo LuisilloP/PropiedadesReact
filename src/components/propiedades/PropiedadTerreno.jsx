@@ -1,65 +1,101 @@
-import propiedadSpects from './Propiedad.jsx';
+import React from 'react';
 import axios from 'axios';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Mousewheel, Keyboard, EffectFade } from 'swiper';
 
-import MostrarImagenes from './mostrarImagenSwiper.jsx';
-const mostrarPropiedades = async (urlKey) => {
-	const UrlImages = import.meta.env.VITE_URL_GETIMAGES;
-	console.log(UrlImages);
-	await axios
-		.get(UrlImages + `/${urlKey}`, {
-			responseType: 'blob',
-		})
-		.then((response) => {
-			console.log(response.data);
-			let id = document.getElementById(urlKey.slice(0, -4));
-			let imgUrl = URL.createObjectURL(response.data);
-			id.src = imgUrl;
-		});
-};
 const PropiedadPlantilla = (props) => {
-	const { id, titulo, url_img, descripcion, ubicacion } = props;
-
+	const {
+		id,
+		titulo,
+		url_img,
+		descripcion,
+		ubicacion,
+		tipo,
+		banio,
+		habitacion,
+		agua,
+		luz,
+		metros,
+		precio,
+	} = props;
+	const mostrarPropiedades = async (urlKey) => {
+		const UrlImages = import.meta.env.VITE_URL_GETIMAGES;
+		await axios
+			.get(UrlImages + `/${urlKey}`, {
+				responseType: 'blob',
+			})
+			.then((response) => {
+				let idImg = document.getElementById(urlKey);
+				let imgUrl = URL.createObjectURL(response.data);
+				idImg.src = imgUrl;
+			});
+	};
+	const navigationPrevRef = React.useRef(null);
+	const navigationNextRef = React.useRef(null);
 	return (
 		<div className="propiedad">
 			<div className="hidden">
 				<input type="text" className="idPropiedad" defaultValue={id} />
 			</div>
-			<div className="swiper">
-				<div className="swiper-wrapper">
-					{url_img.map((img) => {
-						<MostrarImagenes
-							key={img.slice(0, -4)}
-							img={img}
-						></MostrarImagenes>;
-					})}
-				</div>
-
-				<div className="swiper-pagination"></div>
-				<div className="swiper-button-prev"></div>
-				<div className="swiper-button-next"></div>
-			</div>
+			<Swiper
+				cssMode={true}
+				mousewheel={true}
+				keyboard={true}
+				modules={[Navigation, Mousewheel, Keyboard, EffectFade]}
+				//effect="fade"
+				className="mySwiper"
+				navigation={true}
+			>
+				{url_img.map((img) => (
+					<SwiperSlide key={img}>
+						<img id={img} src={mostrarPropiedades(img)} alt="img_house" />
+					</SwiperSlide>
+				))}
+			</Swiper>
 			<div className="informacion-propiedad">
 				<div className="titulo-propiedad">
 					<h3>{titulo}</h3>
 					<p>{ubicacion}</p>
-					<p>{descripcion}</p>
+					<p className="descripcion-propiedad">
+						{descripcion.length >= 185
+							? `${descripcion.slice(0, 180)}...`
+							: descripcion}
+					</p>
 				</div>
+
 				<div className="iconos-precio-propiead">
 					<div className="iconos-propiedad">
 						<img
 							className="icono-propiedad"
-							src="/img/icons/dormitorioCyT.png"
+							src={
+								tipo == 'propiedad'
+									? '../../assets/iconos/dormitorioCyT.png'
+									: '../../assets/iconos/luzCyT.png'
+							}
 						/>
-						<p>4</p>
-						<img className="icono-propiedad" src="/img/icons/banosCyT.png" />
-						<p>2</p>
-						<img className="icono-propiedad" src="/img/icons/metrosCyT.png" />
+						<p>{tipo == 'propiedad' ? habitacion : luz}</p>
+						<img
+							className="icono-propiedad"
+							src={
+								tipo == 'propiedad'
+									? '../../assets/iconos/banosCyT.png'
+									: '../../assets/iconos/aguaCyT.png'
+							}
+						/>
+						<p>{tipo == 'propiedad' ? banio : agua}</p>
+						<img
+							className="icono-propiedad"
+							src="../../assets/iconos/metrosCyT.png"
+						/>
 						<p>
-							240m<sup>2</sup>
+							{metros}m<sup>2</sup>
 						</p>
 					</div>
 					<div className="precio-propiedad">
-						<p>Valor $20.000.000</p>
+						<p>Valor: ${precio.toLocaleString()}</p>
 						<button className="btn-contactoDirecto">Contacto directo</button>
 					</div>
 				</div>
