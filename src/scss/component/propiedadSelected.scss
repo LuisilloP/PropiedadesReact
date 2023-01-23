@@ -1,0 +1,70 @@
+.Propiedad-selected-Img
+{
+    height: 40vh!important;
+}
+.cont-selected
+{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    padding: 20px 0px 20px 0px ;
+    gap:20px
+
+}
+.cont-img-selected
+{
+display: flex;
+}
+.mySwiperVertical
+{
+    height: 600px;
+    margin-left: 0 !important;
+    .swiper-button-prev {
+        left: 50% !important;
+        top: 1% !important;
+        transform: rotate(90deg);
+        transform-origin: left center;
+      }
+      .swiper-button-next {
+        left: 50% !important;
+        top: 97% !important;
+        transform: rotate(90deg);
+        transform-origin: left center;
+      }
+      
+      .swiper-button-next, .swiper-button-prev
+      {
+        --swiper-navigation-size: 22px;
+
+      }
+      
+}
+.mySwiperSelect
+{
+    height: 600px;
+    width: 800px;
+   
+    .swiper-slide img
+    {
+        height: 100%;
+        border-radius: 8px;
+    }
+}
+.secondVertical
+{
+   
+    width: 230px!important;
+    height: 290px!important;
+    border-radius: 8px;
+    
+}
+.hr-description
+{
+    width: 40%;
+    margin-left: 0;
+    border:0;
+    border-top: 1px solid #ababab;
+}
+.select-informacion
+{
+    margin: 50px;
+}

@@ -1,0 +1,35 @@
+@use '../globals/variables' as var;
+@use '../globals/mixin' as mix;
+.contact-page {
+	width: 70vw;
+	margin: 0 auto;
+	h1 {
+		text-align: center;
+		padding-bottom: 2rem;
+	}
+	.form-contact {
+		display: flex;
+		gap: 0.5rem;
+		flex-direction: column;
+		padding-bottom: 5rem;
+		.input-name-phone {
+			display: flex;
+			gap: 2rem;
+		}
+	}
+}
+
+.btn-send {
+	width: 15rem;
+	height: 3rem;
+	font-size: 1.1rem;
+	background: rgb(1, 108, 120);
+	border-style: hidden;
+	color: #ededed;
+	transition: all 1s ease-out;
+	border-radius: 5px;
+	&:hover {
+		cursor: pointer;
+		background: rgb(0, 156, 172);
+	}
+}

@@ -1,45 +1,48 @@
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import PropiedadPlantilla from '../../components/propiedades/PropiedadTerreno.jsx';
 
 import axios from 'axios';
 
-const ContenedorPropiedades = () => {
+const ContenedorPropiedades = (obj) => {
+	const { cant } = obj;
 	const [propiedades, setPropiedades] = useState([]);
 	const rutaMostrarPropiedades = import.meta.env.VITE_MOSTRARPROPIEDADES;
+	const usertoken = localStorage.getItem('UserToken');
 
-	const getData = async () => {
-		const { data } = await axios.post(rutaMostrarPropiedades, {
-			tipo: 'terreno-propiedad',
-		});
-		setPropiedades(data);
-	};
-
-	useLayoutEffect(() => {
+	useEffect(() => {
+		const getData = async () => {
+			const { data } = await axios.post(rutaMostrarPropiedades, {
+				tipo: 'terreno-propiedad',
+			});
+			setPropiedades(data);
+		};
 		getData();
 	}, []);
 	{
 		return (
 			<section className="contenedor">
-				<h1 className="text-aling-center">Propiedades</h1>
+				{/* <h1 className="text-aling-center">Propiedades</h1> */}
 				<div className="contenedor-propiedad">
 					{propiedades.map((propiedad, index) => {
-						if (index <= 2) {
+						//console.log(propiedad.type);
+						//MUESTRA 3 YA QUE EL INDEX PARTE EN 0
+						if (index <= cant) {
 							//maximo de propiedades a mostrar
 							return (
 								<PropiedadPlantilla
 									key={propiedad._id}
 									id={propiedad._id}
-									titulo={propiedad.titulo}
-									descripcion={propiedad.descripcion}
+									titulo={propiedad.title}
+									descripcion={propiedad.description}
 									url_img={propiedad.url_img}
-									ubicacion={propiedad.ubicacion}
-									banio={propiedad.banio}
-									tipo={propiedad.tipo}
-									metros={propiedad.metros}
-									habitacion={propiedad.habitacion}
-									agua={propiedad.agua}
-									luz={propiedad.luz}
-									precio={propiedad.precio}
+									ubicacion={propiedad.ubication}
+									banio={propiedad.toilets}
+									tipo={propiedad.type}
+									metros={propiedad.meters}
+									habitacion={propiedad.beedrooms}
+									agua={propiedad.water}
+									luz={propiedad.light}
+									precio={propiedad.price}
 								></PropiedadPlantilla>
 							);
 						}
@@ -50,20 +53,3 @@ const ContenedorPropiedades = () => {
 	}
 };
 export default ContenedorPropiedades;
-// _id: "c103964c-2593-45a6-90f9-98f135564b6d"
-// ​​
-// agua: "no"
-// ​​
-// descripcion: "1"
-// ​​
-// luz: "si"
-// ​​
-// metros: 1
-// ​​
-// precio: 1
-// ​​
-// tipo: "terreno"
-// ​​
-// titulo: "terrenogenial"
-// ​​
-// ubicacion: "1"

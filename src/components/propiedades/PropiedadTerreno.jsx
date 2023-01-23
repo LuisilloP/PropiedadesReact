@@ -1,11 +1,11 @@
 import React from 'react';
-import axios from 'axios';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Mousewheel, Keyboard, EffectFade } from 'swiper';
-
+import { Navigation, Mousewheel, Keyboard, EffectFade, Autoplay } from 'swiper';
+import { NavLink } from '../navLink';
+import { mostrarPropiedades } from '../../lib/axios.js';
 const PropiedadPlantilla = (props) => {
 	const {
 		id,
@@ -21,18 +21,7 @@ const PropiedadPlantilla = (props) => {
 		metros,
 		precio,
 	} = props;
-	const mostrarPropiedades = async (urlKey) => {
-		const UrlImages = import.meta.env.VITE_URL_GETIMAGES;
-		await axios
-			.get(UrlImages + `/${urlKey}`, {
-				responseType: 'blob',
-			})
-			.then((response) => {
-				let idImg = document.getElementById(urlKey);
-				let imgUrl = URL.createObjectURL(response.data);
-				idImg.src = imgUrl;
-			});
-	};
+
 	const navigationPrevRef = React.useRef(null);
 	const navigationNextRef = React.useRef(null);
 	return (
@@ -41,65 +30,78 @@ const PropiedadPlantilla = (props) => {
 				<input type="text" className="idPropiedad" defaultValue={id} />
 			</div>
 			<Swiper
-				cssMode={true}
 				mousewheel={true}
 				keyboard={true}
-				modules={[Navigation, Mousewheel, Keyboard, EffectFade]}
-				//effect="fade"
+				modules={[Navigation, Mousewheel, Keyboard, EffectFade, Autoplay]}
 				className="mySwiper"
 				navigation={true}
+				autoplay={{
+					delay: 2500,
+				}}
 			>
 				{url_img.map((img) => (
 					<SwiperSlide key={img}>
-						<img id={img} src={mostrarPropiedades(img)} alt="img_house" />
+						<img
+							id={`principal${img}`}
+							src={mostrarPropiedades(img, `principal${img}`)}
+							alt="img_house"
+						/>
 					</SwiperSlide>
 				))}
 			</Swiper>
-			<div className="informacion-propiedad">
-				<div className="titulo-propiedad">
-					<h3>{titulo}</h3>
-					<p>{ubicacion}</p>
-					<p className="descripcion-propiedad">
-						{descripcion.length >= 185
-							? `${descripcion.slice(0, 180)}...`
-							: descripcion}
-					</p>
-				</div>
-
-				<div className="iconos-precio-propiead">
-					<div className="iconos-propiedad">
-						<img
-							className="icono-propiedad"
-							src={
-								tipo == 'propiedad'
-									? '../../assets/iconos/dormitorioCyT.png'
-									: '../../assets/iconos/luzCyT.png'
-							}
-						/>
-						<p>{tipo == 'propiedad' ? habitacion : luz}</p>
-						<img
-							className="icono-propiedad"
-							src={
-								tipo == 'propiedad'
-									? '../../assets/iconos/banosCyT.png'
-									: '../../assets/iconos/aguaCyT.png'
-							}
-						/>
-						<p>{tipo == 'propiedad' ? banio : agua}</p>
-						<img
-							className="icono-propiedad"
-							src="../../assets/iconos/metrosCyT.png"
-						/>
-						<p>
-							{metros}m<sup>2</sup>
+			<NavLink to={`/PropiedadSelected/${id}`} state={props}>
+				<div className="informacion-propiedad">
+					<div className="titulo-propiedad">
+						<h3>{titulo}</h3>
+						<p>{ubicacion}</p>
+						<p className="descripcion-propiedad">
+							{descripcion.length >= 185
+								? `${descripcion.slice(0, 180)}...`
+								: descripcion}
 						</p>
 					</div>
-					<div className="precio-propiedad">
-						<p>Valor: ${precio.toLocaleString()}</p>
-						<button className="btn-contactoDirecto">Contacto directo</button>
+
+					<div className="iconos-precio-propiead">
+						<div className="iconos-propiedad">
+							<div className="ico-cant">
+								<img
+									className="icono-propiedad"
+									src={
+										tipo == 'casa'
+											? '../../assets/iconos/dormitorioCyT.png'
+											: '../../assets/iconos/luzCyT.png'
+									}
+								/>
+								<p>{tipo == 'casa' ? habitacion : luz}</p>
+							</div>
+							<div className="ico-cant">
+								<img
+									className="icono-propiedad"
+									src={
+										tipo == 'casa'
+											? '../../assets/iconos/banosCyT.png'
+											: '../../assets/iconos/aguaCyT.png'
+									}
+								/>
+								<p>{tipo == 'casa' ? banio : agua}</p>
+							</div>
+							<div className="ico-cant">
+								<img
+									className="icono-propiedad"
+									src="../../assets/iconos/metrosCyT.png"
+								/>
+								<p>
+									{metros}m<sup>2</sup>
+								</p>
+							</div>
+						</div>
+						<div className="precio-propiedad">
+							<p>Valor: ${precio.toLocaleString()}</p>
+							<button className="btn-contactoDirecto">Contacto directo</button>
+						</div>
 					</div>
 				</div>
-			</div>
+			</NavLink>
 		</div>
 	);
 };

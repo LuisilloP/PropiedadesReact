@@ -1,0 +1,23 @@
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding-bottom: 5rem;
+
+	.info-title-text {
+		width: 80%;
+		text-align: center;
+		margin: 0 auto;
+	}
+	.info-text-image {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		h1 {
+			text-align: center;
+		}
+	}
+	.image-info {
+		width: 35rem;
+		border-radius: 10px;
+	}
+}

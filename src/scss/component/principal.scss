@@ -1,44 +1,42 @@
-@use"../globals/variables" as var;
-@use"../globals/mixin" as mix;
+@use '../globals/variables' as var;
+@use '../globals/mixin' as mix;
 
-body
-{
-    //background-color: var.$fondo;
-    font-family: 'Oswald', sans-serif;
-    color: rgb(63, 63, 63)
-// font-family: 'Francois One', sans-serif;
+body {
+	//background-color: var.$fondo;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	color: rgb(63, 63, 63);
+	// font-family: 'Francois One', sans-serif;
 
-// font-family: 'Oswald', sans-serif;
+	// font-family: 'Oswald', sans-serif;
 
-// font-family: 'Passion One', cursive;
+	// font-family: 'Passion One', cursive;
 }
-.margin_0
-{
-    margin: 0;
+.margin_0 {
+	margin: 0;
 }
-.contenedor
-{
-    max-width: 1200px;
-    min-width: 320px;
-    width: 75vw;
-    margin: 0 auto;
+.contenedor {
+	max-width: 1200px;
+	min-width: 320px;
+	width: 85vw;
+	margin: 0 auto;
+	@include mix.mediaAlta {
+		width: 90vw;
+	}
 }
-.texto_intro
-{
-    text-align: center;
-    margin: 0 auto;
-    max-width: 750px;
-    padding-top: 5rem;
+.texto_intro {
+	text-align: center;
+	margin: 0 auto;
+	max-width: 750px;
+	padding-top: 5rem;
 }
-.separator  
-{
-    margin: 4rem auto ;
-    width: 70%;
-    height: 1px;
-    background-color: var.$celeste;
+.separator {
+	margin: 4rem auto;
+	width: 70%;
+	height: 1px;
+	background-color: var.$celeste;
 }
-.hidden
-{
-    visibility: hidden;
-    display: none;
+.hidden {
+	visibility: hidden;
+	display: none;
 }

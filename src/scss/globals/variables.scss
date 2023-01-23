@@ -1,11 +1,17 @@
 $negro: black;
-$letraOscura:#545454;
-$gris :#8b8b8b;
-$blanco:white;
-$fondo:#212020;
-$celeste:rgb(0, 200, 220);
+$letraOscura: #545454;
+$gris: #8b8b8b;
+$blanco: white;
+$fondo: #212020;
+$celeste: rgb(0, 200, 220);
+$form-color: #009393;
+$gradientProyect: linear-gradient(
+	90deg,
+	rgb(45, 253, 133) 12%,
+	rgb(34, 193, 195) 62%,
+	rgb(39, 205, 222) 95%
+);
 @import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Oswald:wght@300&family=Passion+One&display=swap');
-
 
 // font-family: 'Francois One', sans-serif;
 

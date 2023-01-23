@@ -35,7 +35,7 @@ const HeaderNav = () => {
 		}
 	}, [location]);
 
-	let tooglePortadaImg = portadaImg ? 'portadaImg' : 'heght_header_default';
+	let tooglePortadaImg = portadaImg ? 'portadaImg' : 'header_default';
 	let fondoHeaderNormal = portadaImg ? '' : 'fondo-headerBlack';
 	return (
 		<>
@@ -50,7 +50,7 @@ const HeaderNav = () => {
 										'tituloNav-a' + (!isActive ? ' unselected' : '')
 									}
 								>
-									PROPIEDADES C&T
+									PROPIEDADES
 								</NavLink>
 							</h1>
 							<h1 className="tituloNav wave">
@@ -60,7 +60,7 @@ const HeaderNav = () => {
 										'tituloNav-a' + (!isActive ? ' unselected' : '')
 									}
 								>
-									PROPIEDADES C&T
+									PROPIEDADES
 								</NavLink>
 							</h1>
 						</div>
@@ -79,6 +79,11 @@ const HeaderNav = () => {
 						<nav className={`nav ${toogleCheck} ${transition}`}>
 							<ul className="ul">
 								<li className="li">
+									<NavLink to="/" className="">
+										Inicio
+									</NavLink>
+								</li>
+								<li className="li">
 									<NavLink to="Propiedades" className="">
 										Propiedades
 									</NavLink>
@@ -89,7 +94,7 @@ const HeaderNav = () => {
 									</NavLink>
 								</li>
 								<li className="li">
-									<NavLink to="#" className="contacto">
+									<NavLink to="Contacto" className="contacto">
 										Contacto
 									</NavLink>
 								</li>

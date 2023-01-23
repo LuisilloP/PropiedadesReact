@@ -1,13 +1,61 @@
-.Footer-principal
-{
-    height: 20vh;
-    background-color: #1d1d1d;
-    h1{
-        color: white;
-    }
-    .contenedor-footer
-    {
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-    }
+@use '../globals/variables' as var;
+@use '../globals/mixin' as mix;
+.Footer-principal {
+	font-size: 13px;
+	height: 25;
+	h1 {
+		color: white;
+	}
+	color: white;
+	.contenedor-footer {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 15px;
+		background-color: #1e1e1e;
+		padding: 0px 0px 5px 20px;
+
+		@include mix.media() {
+			grid-template-columns: repeat(1, 1fr);
+			justify-content: center;
+
+			padding-left: 50px;
+		}
+	}
+	.contact-logo {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+	a {
+		color: white;
+	}
+	p {
+		margin: 0;
+	}
+	.logo {
+		height: 3vh;
+	}
+	.ul-footer {
+		display: flex;
+		list-style: none;
+		gap: 15px;
+		padding: 0;
+	}
+	.redes-sociales {
+		background-color: #1e1e1e;
+		h2 {
+			margin: 0;
+			text-align: center;
+			padding: 15px;
+		}
+		.redes-sociales-logos {
+			display: flex;
+			width: 20vh;
+			gap: 10px;
+			justify-content: center;
+			.logo-redes {
+				height: 3.5vh;
+			}
+		}
+	}
 }
