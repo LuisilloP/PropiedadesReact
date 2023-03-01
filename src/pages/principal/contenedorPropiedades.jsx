@@ -13,6 +13,7 @@ const ContenedorPropiedades = (obj) => {
 		const getData = async () => {
 			const { data } = await axios.post(rutaMostrarPropiedades, {
 				tipo: 'terreno-propiedad',
+				headers: { 'Access-Control-Allow-Origin': '*' },
 			});
 			setPropiedades(data);
 		};

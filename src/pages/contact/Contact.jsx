@@ -37,7 +37,7 @@ const Contact = () => {
 						id="demo-helper-text-misaligned"
 						label="Mensaje"
 					/>
-					<button type="submit" className="btn-send">
+					<button type="submit" className="btn-send-contact">
 						Enviar
 					</button>
 				</form>
