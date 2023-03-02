@@ -1,5 +1,11 @@
 import React from 'react';
-
+import SN_WSP from '../../public/iconos/redes/whatsapp.png';
+import SN_FACEBOOK from '../../public/iconos/redes/facebook.png';
+import SN_GITHUB from '../../public/iconos/redes/github.png';
+import SN_IG from '../../public/iconos/redes/instagram.png';
+import NUMBER from '../../public/iconos/telefono.png';
+import MAIL from '../../public/iconos/correo.png';
+import LOCATION from '../../public/iconos/direccion.png';
 const Footer = () => {
 	return (
 		<div className="Footer-principal">
@@ -47,11 +53,11 @@ const Footer = () => {
 				<div className="footer-contact">
 					<h1>Contacto</h1>
 					<div className="contact-logo">
-						<img src="../assets/iconos/telefono.png" className="logo" />
+						<img src={NUMBER} className="logo" />
 						<p>+569 987654321</p>
 					</div>
 					<div className="contact-logo">
-						<img src="../assets/iconos/correo.png" className="logo" />
+						<img src={MAIL} className="logo" />
 						<p>correo@correo.com</p>
 					</div>
 					<div className="contact-logo">
@@ -60,7 +66,7 @@ const Footer = () => {
 							className="contact-logo"
 							target="_blank"
 						>
-							<img src="../assets/iconos/direccion.png" className="logo" />
+							<img src={LOCATION} className="logo" />
 							<p>Municipalidad de Ovalle - Carmen, Ovalle</p>
 						</a>
 					</div>
@@ -69,22 +75,10 @@ const Footer = () => {
 			<div className="redes-sociales">
 				<h2>Siguenos</h2>
 				<div className="contenedor redes-sociales-logos">
-					<img
-						src="../assets/iconos/redes/facebook.png"
-						className="logo-redes"
-					></img>
-					<img
-						src="../assets/iconos/redes/instagram.png"
-						className="logo-redes"
-					></img>
-					<img
-						src="../assets/iconos/redes/whatsapp.png"
-						className="logo-redes"
-					></img>
-					<img
-						src="../assets/iconos/redes/github.png"
-						className="logo-redes"
-					></img>
+					<img src={SN_FACEBOOK} className="logo-redes"></img>
+					<img src={SN_IG} className="logo-redes"></img>
+					<img src={SN_WSP} className="logo-redes"></img>
+					<img src={SN_GITHUB} className="logo-redes"></img>
 				</div>
 			</div>
 		</div>

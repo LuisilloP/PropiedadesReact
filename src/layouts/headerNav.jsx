@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { NavLink } from '../components/navLink.jsx';
+import ImageHeader from '../../public/img/propiedadfondo.jpg';
 
 {
 	/* <div className="contenedor centra_div estilo_txt_imagen">
@@ -35,7 +36,7 @@ const HeaderNav = () => {
 		}
 	}, [location]);
 
-	let tooglePortadaImg = portadaImg ? 'portadaImg' : 'header_default';
+	let tooglePortadaImg = portadaImg ? '' : 'header_default';
 	let fondoHeaderNormal = portadaImg ? '' : 'fondo-headerBlack';
 	return (
 		<>
@@ -102,6 +103,10 @@ const HeaderNav = () => {
 						</nav>
 					</header>
 				</div>
+				<img
+					src={ImageHeader}
+					className={`${portadaImg ? 'portadaImg' : 'display-none'}`}
+				></img>
 			</section>
 		</>
 	);

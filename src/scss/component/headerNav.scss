@@ -4,9 +4,8 @@
 	position: relative;
 	width: 100%;
 	height: 45rem;
-	background-image: url('../../assets/propiedadfondo.jpg');
-	background-size: cover;
-	background-position: center center;
+	object-fit: cover;
+	object-position: center center;
 	transition: all 0.3s ease;
 	@include mix.media {
 		transition: all 0.3s ease;
@@ -89,7 +88,7 @@ header {
 	&.sigue //cuando tiene la clase sigue
 	{
 		transition: all 0.3s ease;
-		padding: 0;
+
 		.nav {
 			a {
 				color: var.$letraOscura;

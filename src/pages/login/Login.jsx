@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LoginUser, AccessUser } from '../../lib/axios';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 const Login = () => {
 	const [inputValue, setInputValue] = useState({});
 	const navigate = useNavigate();
@@ -62,11 +63,9 @@ const Login = () => {
 						label="Ingrese contraseña"
 					/>
 
-					<input
-						value="Entrar"
-						className="btn-send btn-login"
-						type="submit"
-					></input>
+					<Button variant="contained" className=" btn-send-form " type="submit">
+						Entrar
+					</Button>
 				</form>
 			</div>
 		</div>

@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Mousewheel, Keyboard, EffectFade, Autoplay } from 'swiper';
 import { NavLink } from '../navLink';
 import { mostrarPropiedades } from '../../lib/axios.js';
+import IconosPropiedades from './IconosPropiedades';
 const PropiedadPlantilla = (props) => {
 	const {
 		id,
@@ -21,9 +22,15 @@ const PropiedadPlantilla = (props) => {
 		metros,
 		precio,
 	} = props;
+	const dataSendIcons = {
+		tipo: tipo,
+		banio: banio,
+		habitacion: habitacion,
+		agua: agua,
+		luz: luz,
+		metros: metros,
+	};
 
-	const navigationPrevRef = React.useRef(null);
-	const navigationNextRef = React.useRef(null);
 	return (
 		<div className="propiedad">
 			<div className="hidden">
@@ -60,45 +67,17 @@ const PropiedadPlantilla = (props) => {
 								: descripcion}
 						</p>
 					</div>
-
-					<div className="iconos-precio-propiead">
-						<div className="iconos-propiedad">
-							<div className="ico-cant">
-								<img
-									className="icono-propiedad"
-									src={
-										tipo == 'casa'
-											? '../../assets/iconos/dormitorioCyT.png'
-											: '../../assets/iconos/luzCyT.png'
-									}
-								/>
-								<p>{tipo == 'casa' ? habitacion : luz}</p>
-							</div>
-							<div className="ico-cant">
-								<img
-									className="icono-propiedad"
-									src={
-										tipo == 'casa'
-											? '../../assets/iconos/banosCyT.png'
-											: '../../assets/iconos/aguaCyT.png'
-									}
-								/>
-								<p>{tipo == 'casa' ? banio : agua}</p>
-							</div>
-							<div className="ico-cant">
-								<img
-									className="icono-propiedad"
-									src="../../assets/iconos/metrosCyT.png"
-								/>
-								<p>
-									{metros}m<sup>2</sup>
-								</p>
-							</div>
-						</div>
-						<div className="precio-propiedad">
-							<p>Valor: ${precio.toLocaleString()}</p>
-							<button className="btn-contactoDirecto">Contacto directo</button>
-						</div>
+					<IconosPropiedades
+						tipo={tipo}
+						agua={agua}
+						luz={luz}
+						metros={metros}
+						banio={banio}
+						habitacion={habitacion}
+					></IconosPropiedades>
+					<div className="precio-propiedad">
+						<p>Valor: ${precio.toLocaleString()}</p>
+						<button className="btn-contactoDirecto">Contacto directo</button>
 					</div>
 				</div>
 			</NavLink>

@@ -1,10 +1,13 @@
-import { resolve } from "path";
-import { defineConfig } from "vite";
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
 
-import react from "@vitejs/plugin-react";
-const root = resolve(__dirname, "src");
+import react from '@vitejs/plugin-react';
+const root = resolve(__dirname, 'src');
 // https://vitejs.dev/config/
 export default defineConfig({
-  root,
-  plugins: [react()],
+	root,
+	plugins: [react()],
+	build: {
+		chunkSizeWarningLimit: 4000,
+	},
 });

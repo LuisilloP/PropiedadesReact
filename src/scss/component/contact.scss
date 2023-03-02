@@ -18,18 +18,11 @@
 		}
 	}
 }
-
-.btn-send {
-	width: 15rem;
+.btn-send-form {
+	background-color: #009891 !important;
 	height: 3rem;
-	font-size: 1.1rem;
-	background: rgb(1, 108, 120);
-	border-style: hidden;
-	color: #ededed;
-	transition: all 1s ease-out;
-	border-radius: 5px;
+
 	&:hover {
-		cursor: pointer;
-		background: rgb(0, 156, 172);
+		background-color: #08bdb4 !important;
 	}
 }

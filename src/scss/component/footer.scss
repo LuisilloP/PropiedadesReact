@@ -17,8 +17,6 @@
 		@include mix.media() {
 			grid-template-columns: repeat(1, 1fr);
 			justify-content: center;
-
-			padding-left: 50px;
 		}
 	}
 	.contact-logo {

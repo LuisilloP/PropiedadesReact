@@ -1,13 +1,18 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const Contact = () => {
+	const pruebaMsg = (event) => {
+		event.preventDefault();
+		alert('esto es una prueba');
+	};
 	return (
 		<div className="min-height-t">
 			<div className="layer-one spacer"></div>
 			<div className="contact-page">
 				<h1>Contactanos</h1>
-				<form className="form-contact">
+				<form className="form-contact" onSubmit={(event) => pruebaMsg(event)}>
 					<div className="input-name-phone">
 						<TextField
 							fullWidth
@@ -37,9 +42,9 @@ const Contact = () => {
 						id="demo-helper-text-misaligned"
 						label="Mensaje"
 					/>
-					<button type="submit" className="btn-send-contact">
+					<Button variant="contained" className=" btn-send-form " type="submit">
 						Enviar
-					</button>
+					</Button>
 				</form>
 			</div>
 		</div>
