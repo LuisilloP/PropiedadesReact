@@ -275,10 +275,14 @@ header {
 	background-position: center;
 	background-size: cover;
 	min-height: 200px;
+	img {
+		width: 100%;
+		object-fit: cover;
+		height: 100%;
+		object-position: center center;
+	}
 }
-.layer-one {
-	background-image: url('../../assets/top-slider-contact.svg');
-}
+
 .layer-two {
 	background-image: url('../../assets/top-header-property.svg');
 }

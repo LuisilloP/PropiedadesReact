@@ -30,7 +30,7 @@ const ContenedorPropiedades = (obj) => {
 						<HashLoader
 							color="#36d7b7"
 							loading={loading}
-							size="100"
+							size="100px"
 						></HashLoader>
 					</div>
 				) : (

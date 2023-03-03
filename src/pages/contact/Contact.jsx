@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
+import layerOne from '../../../public/top-slider-contact.svg';
 const Contact = () => {
 	const pruebaMsg = (event) => {
 		event.preventDefault();
@@ -9,7 +9,9 @@ const Contact = () => {
 	};
 	return (
 		<div className="min-height-t">
-			<div className="layer-one spacer"></div>
+			<div className="layer-one spacer">
+				<img src={layerOne}></img>
+			</div>
 			<div className="contact-page">
 				<h1>Contactanos</h1>
 				<form className="form-contact" onSubmit={(event) => pruebaMsg(event)}>

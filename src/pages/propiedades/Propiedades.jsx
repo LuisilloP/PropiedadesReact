@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Slider } from '@mui/material';
 import ContenedorPropiedades from '../principal/contenedorPropiedades';
-
+import layerTwo from '../../../public/top-header-property.svg';
 const Propiedades = () => {
 	const [value, setValue] = useState([1, 25]);
 	const [bathroom, setBathroom] = useState([1, 5]);
@@ -42,7 +42,9 @@ const Propiedades = () => {
 
 	return (
 		<div className="min-height-t ">
-			<div className="layer-two spacer"></div>
+			<div className="layer-two spacer">
+				<img src={layerTwo}></img>
+			</div>
 			<div className="property-page ">
 				<h1>Propiedades</h1>
 				<div className="property-filter">

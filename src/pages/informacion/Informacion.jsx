@@ -1,9 +1,12 @@
 import React from 'react';
 import ImageInfo from '../../../public/img/infoImage.png';
+import layerThree from '../../../public/top-slider-info.svg';
 function Informacion() {
 	return (
 		<div className="min-height-t ">
-			<div className="layer-three spacer"></div>
+			<div className="layer-three spacer">
+				<img src={layerThree}></img>
+			</div>
 			<div className="contenedor">
 				<div className="info">
 					<div className="info-title-text">

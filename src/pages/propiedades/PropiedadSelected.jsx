@@ -9,7 +9,7 @@ import {
 	FreeMode,
 	Thumbs,
 } from 'swiper';
-
+import layerTwo from '../../../public/top-header-property.svg';
 import { mostrarPropiedades } from '../../lib/axios';
 import { useState } from 'react';
 import IconosPropiedades from '../../components/propiedades/IconosPropiedades';
@@ -36,7 +36,9 @@ const PropiedadSelected = () => {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 	return (
 		<>
-			<div className="layer-one spacer"></div>
+			<div className="layer-one spacer">
+				<img src={layerTwo}></img>
+			</div>
 			<div className="contenedor">
 				<div className="cont-selected">
 					<div className="cont-img-selected">
